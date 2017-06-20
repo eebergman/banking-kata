@@ -11,7 +11,7 @@ export class DataService {
   constructor(private http: Http) { }
 
   public fetchAccountBalance(): Observable<BankAccount> {
-    return this.http.get(`http://localhost:8080/accounts/570e4c25-4872-4d54-84ad-0df137a9985d/balance`)
+    return this.http.get(`http://localhost:8080/accounts/3e750c83-ec7d-42f2-85e1-314512ad5eff/balance`)
       .map((res: Response) => res.json());
   }
 

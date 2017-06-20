@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from 'app/core/core.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { DataService } from 'app/core/services/data.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     BrowserAnimationsModule,
     CoreModule
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
