@@ -10,3 +10,24 @@ body {
 .rout-out {
     margin: 2em;
 }
+
+.primary-text {
+    color: #673ab7!important;
+}
+
+.accent-text {
+    color: #ffd740!important;
+}
+
+.white-text {
+    color: white!important;
+}
+
+.primary-background {
+    background-color: #673ab7!important;
+}
+
+.accent-background {
+    background-color: #ffd740!important;
+}
+
