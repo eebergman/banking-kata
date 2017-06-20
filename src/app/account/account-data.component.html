@@ -1,4 +1,6 @@
 <div *ngFor="let account of accounts">
-  <p>{{ account.amount | currency:'USD':true }}</p>
-
+  <md-card>
+    <span>Balance: </span>
+    <span>{{ account.amount | currency:'USD':true }}</span>
+  </md-card>
 </div>

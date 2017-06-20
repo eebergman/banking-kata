@@ -1,10 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
-
 body {
     margin: 0%;
     background-color: gray;
+    background-image: url('./assets/images/city.jpg');
+    background-size: cover;
 }
 
 .rout-out {
@@ -31,3 +32,18 @@ body {
     background-color: #ffd740!important;
 }
 
+.nav-bar-spacer {
+    flex: 1 1 auto;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.register {
+    max-width: 75em;
+    display: block;
+    margin: auto;
+    border: 3px solid black;
+    border-radius: 5px;
+}

@@ -27,4 +27,6 @@ export class AccountDataComponent implements OnInit {
     this.dataService.fetchAccountBalance()
       .subscribe(account => this.accounts.push(account));
   }
+
+  
 }
