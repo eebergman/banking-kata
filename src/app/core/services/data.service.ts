@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Response, URLSearchParams, RequestOptions, Headers } from '@angular/http';
 
 import { Observable } from 'rxjs/Observable';
 
@@ -15,4 +15,30 @@ export class DataService {
     return this.http.get(`http://localhost:8080/accounts/${this.accountNumber}/balance`)
       .map((res: Response) => res.json());
   }
+
+  public newAccount(): Observable<any> {
+    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const options = new RequestOptions({ headers: headers });
+
+    const newAcc = {
+      amount: 30.00,
+      currency: 'USD'
+    };
+
+
+    return this.http.post(`http://localhost:8080/accounts`, newAcc, options)
+      .map(this.extractData)
+      .catch(this.handleErrorObservable);
+  }
+
+  private extractData(res: Response) {
+    const body = res.json();
+    return body.data || {};
+  }
+
+  private handleErrorObservable(error: Response | any) {
+    console.error(error.message || error);
+    return Observable.throw(error.message || error);
+  }
 }
+

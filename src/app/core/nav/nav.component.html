@@ -1,8 +1,24 @@
 <md-toolbar class="white-text" color="primary">
   <h2>Bank of FinTech</h2>
   <span class="nav-bar-spacer"></span>
-  <div [ngSwitch]="router.url">
-    <a *ngSwitchCase="'/account'" md-raised-button color="accent" routerLink="dashboard">Logout</a>
-    <a *ngSwitchDefault md-raised-button color="accent" routerLink="account">Login</a>
-  </div>
+
+  <md-menu #menu="mdMenu">
+    <div *ngIf="router.url.includes('account'), then onAccount; else offAccount">
+    </div>
+    <a routerLink="/account/signup" md-menu-item>
+      <button md-menu-item>Sign Up</button></a>
+  </md-menu>
+
+  <a md-raised-button color="accent" [mdMenuTriggerFor]="menu">
+    <span>Accounts</span></a>
+
+  <ng-template #onAccount>
+    <a routerLink="/dashboard" md-menu-item>
+      <button md-menu-item>Log Out</button></a>
+  </ng-template>
+  <ng-template #offAccount>
+    <a routerLink="/account" md-menu-item>
+      <button md-menu-item>Log In</button></a>
+  </ng-template>
+
 </md-toolbar>

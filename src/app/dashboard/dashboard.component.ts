@@ -9,23 +9,14 @@ import { DataService } from 'app/core/services/data.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  public accounts: BankAccount[];
 
   constructor(private dataService: DataService) {
-    this.accounts = [];
-   }
+  }
 
   ngOnInit() {
-    this.getAccountInformation();
-
-    setTimeout(() => {
-      console.log(this.accounts);
-    }, 1000);
   }
 
-  public getAccountInformation(): void {
-    this.dataService.fetchAccountBalance()
-      .subscribe(account => this.accounts.push(account));
+  public createAccount(): void {
+    this.dataService.newAccount();
   }
-
 }
