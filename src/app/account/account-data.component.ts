@@ -17,16 +17,16 @@ export class AccountDataComponent implements OnInit {
 
   ngOnInit() {
     this.getAccountInformation();
-
-    setTimeout(() => {
-      console.log(this.accounts);
-    }, 1000);
   }
 
   public getAccountInformation(): void {
     this.dataService.fetchAccountBalance()
-      .subscribe(account => this.accounts.push(account));
+      .subscribe((account) => { this.accounts.push(account) },
+      (error: any) => {
+        console.log(error);
+        console.log('error finding variety list');
+      });
   }
 
-  
+
 }

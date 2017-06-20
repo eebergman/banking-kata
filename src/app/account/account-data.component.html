@@ -1,6 +1,14 @@
-<div *ngFor="let account of accounts">
-  <md-card>
-    <span>Balance: </span>
-    <span>{{ account.amount | currency:'USD':true }}</span>
-  </md-card>
+<div *ngIf="accounts.length > 0, else noAccount">
+  <div *ngFor="let account of accounts">
+    <md-card>
+      <span>Balance: </span>
+      <span>{{ account.amount | currency:'USD':true }}</span>
+    </md-card>
+  </div>
 </div>
+
+<ng-template #noAccount>
+  <md-card>
+    <span>Please sign up with our bank</span>
+  </md-card>
+</ng-template>
