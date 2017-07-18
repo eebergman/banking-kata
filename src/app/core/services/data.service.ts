@@ -7,7 +7,7 @@ import { BankAccount } from 'app/core/models/bank-account';
 
 @Injectable()
 export class DataService {
-  private accountNumber = '3e750c83-ec7d-42f2-85e1-314512ad5eff';
+  private accountNumber = '570e4c25-4872-4d54-84ad-0df137a9985d';
 
   constructor(private http: Http) { }
 
@@ -19,14 +19,12 @@ export class DataService {
   public newAccount(): Observable<any> {
     const headers = new Headers({ 'Content-Type': 'application/json' });
     const options = new RequestOptions({ headers: headers });
+    const urlSearchParams = new URLSearchParams();
+    urlSearchParams.append('method', 'post');
+    urlSearchParams.append('amount', '30.00');
+    urlSearchParams.append('currency', 'USD');
 
-    const newAcc = {
-      amount: 30.00,
-      currency: 'USD'
-    };
-
-
-    return this.http.post(`http://localhost:8080/accounts`, newAcc, options)
+    return this.http.post(`http://localhost:8080/accounts`, urlSearchParams.toString, options)
       .map(this.extractData)
       .catch(this.handleErrorObservable);
   }

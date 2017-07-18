@@ -9,6 +9,7 @@ import { DataService } from 'app/core/services/data.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  private makeNewAccount: any;
 
   constructor(private dataService: DataService) {
   }
@@ -17,6 +18,7 @@ export class DashboardComponent implements OnInit {
   }
 
   public createAccount(): void {
-    this.dataService.newAccount();
+    this.dataService.newAccount()
+    .subscribe(data => this.createAccount = data);
   }
 }
